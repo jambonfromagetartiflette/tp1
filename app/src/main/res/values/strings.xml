@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">tp1</string>
+    <string name="author">Nicolas Charpentier</string>
+    <string name="btn_1">Site Web (ext)</string>
+    <string name="btn_2">Mon Profil (wv)</string>
+    <string name="btn_3">ULaval</string>
+    <string name="btn_4">Mon Profil</string>
+
+</resources>
