@@ -13,7 +13,7 @@ public class Profil implements Parcelable {
     private Date birthdate;
     private String idul;
 
-    protected Profil(Parcel in) {
+    public Profil(Parcel in) {
         last_name = in.readString();
         first_name = in.readString();
         birthdate = (java.util.Date) in.readSerializable();
@@ -27,6 +27,14 @@ public class Profil implements Parcelable {
         this.idul = IDUL;
     }
 
+    public String getFirst_name() {
+        return first_name;
+    }
+
+    public String getLast_name() {
+        return last_name;
+    }
+
     public String getBirthdate() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String date = dateFormat.format(birthdate);
@@ -35,14 +43,6 @@ public class Profil implements Parcelable {
 
     public String getIdul() {
         return idul;
-    }
-
-    public String getFirst_name() {
-        return first_name;
-    }
-
-    public String getLast_name() {
-        return last_name;
     }
 
     public static final Creator<Profil> CREATOR = new Creator<Profil>() {

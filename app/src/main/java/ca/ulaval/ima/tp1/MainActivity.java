@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -57,8 +58,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .setPositiveButton("GO", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
                                 String input = userInput.getText().toString();
-                                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(input));
-                                startActivity(browserIntent);
+                                if (URLUtil.isValidUrl(input)) {
+                                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(input));
+                                    startActivity(browserIntent);
+                                }
+                                else {
+                                    AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+                                    alertDialog.setTitle("Error");
+                                    alertDialog.setMessage("URL not valid");
+                                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                            new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    dialog.dismiss();
+                                                }
+                                            });
+                                    alertDialog.show();
+                                }
                             }
                         })
                         .setNegativeButton("Cancel",

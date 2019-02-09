@@ -16,7 +16,7 @@ public class ProfilActivity extends AppCompatActivity {
         Profil profil = getIntent().getParcelableExtra("profil");
 
         content.setText("Prénom: " + profil.getFirst_name()
-                + "\nNom " + profil.getLast_name()
+                + "\nNom: " + profil.getLast_name()
                 + "\nDate de naisssance: " + profil.getBirthdate()
                 + "\nIDUL: " + profil.getIdul()
         );
